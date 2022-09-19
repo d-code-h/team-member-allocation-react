@@ -16,13 +16,12 @@ export default function Main({
 
   function handleEmployeeClick(event) {
     const updatedEmployeeData = employees.map((employee) =>
-      employee.id === parseInt(event.currentTarget.id)
+      employee.id === parseInt(event.currentTarget.parentElement.id)
         ? employee.teamName === selectedTeam
           ? { ...employee, teamName: '' }
           : { ...employee, teamName: selectedTeam }
         : employee
     );
-
     updateEmployee(updatedEmployeeData);
   }
 
